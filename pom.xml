@@ -9,6 +9,7 @@
     </parent>
     <groupId>alex.telegram</groupId>
     <artifactId>telegram-bot</artifactId>
+    <version>1.0</version>
 
     <dependencyManagement>
         <dependencies>
