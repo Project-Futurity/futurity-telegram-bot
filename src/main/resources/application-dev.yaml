@@ -1,0 +1,23 @@
+telegram:
+  task-service:
+    url: "http://localhost:8083"
+  futurity:
+    url: "http://localhost:5200/projects/board"
+
+spring:
+  rabbitmq:
+    username: alex
+    password: password
+  cloud:
+    stream:
+      rabbit:
+        binder:
+          nodes: localhost:5672
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true

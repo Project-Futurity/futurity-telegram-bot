@@ -1,0 +1,47 @@
+telegram:
+  bot:
+    name: FuturityTestBot
+    token: ${TELEGRAM_TOKEN}
+  task-service:
+    url: ${PROJECT_SERVICE_URL}
+  futurity:
+    url: ${FUTURITY_URL}
+
+spring:
+  application:
+    name: notification-telegram-bot
+  datasource:
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    url: ${DATABASE_URL}
+  cloud:
+    function:
+      definition: notificationConsumer
+    stream:
+      bindings:
+        userUpdatePublisher:
+          destination: user
+        notificationConsumer-in-0:
+          destination: notification
+          group: task.notification
+      rabbit:
+        default:
+          consumer:
+            queue-name-group-only: true
+            bind-queue: false
+            declare-exchange: false
+          producer:
+            declare-exchange: false
+            exchange-type: direct
+        bindings:
+          userUpdatePublisher:
+            producer:
+              routing-key: updated
+          notificationConsumer-in-0:
+            consumer:
+              consumer-tag-prefix: ${spring.application.name}-task-notification
+        binder:
+          nodes: ${RABBIT_NODE}
+      output-bindings: userUpdatePublisher
+server:
+  port: 8087
