@@ -2,17 +2,13 @@ telegram:
   task-service:
     url: "http://localhost:8083"
   futurity:
-    url: "http://localhost:5200/projects/board"
+    url: https://cfca-93-170-64-106.ngrok-free.app
 
 spring:
   rabbitmq:
     username: alex
     password: password
-  cloud:
-    stream:
-      rabbit:
-        binder:
-          nodes: localhost:5672
+    addresses: localhost:5672
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres

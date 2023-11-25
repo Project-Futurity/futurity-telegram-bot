@@ -2,6 +2,7 @@ telegram:
   bot:
     name: FuturityTestBot
     token: ${TELEGRAM_TOKEN}
+    path: update
   task-service:
     url: ${PROJECT_SERVICE_URL}
   futurity:
