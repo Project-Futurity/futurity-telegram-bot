@@ -30,7 +30,7 @@ public class UserNotificationSender {
     private String buildMessage(Notification notification) {
         Task info = taskClient.getTaskInfo(notification.getTaskId(), notification.getUserId());
 
-        return MESSAGE.formatted(notification.getPart(), info.getName(), properties.getUrl());
+        return MESSAGE.formatted(notification.getPart(), info.getName(), properties.buildUrl(info.getProjectId()));
     }
 
     private User getUser(Notification notification) {

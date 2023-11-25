@@ -8,7 +8,7 @@
         <version>3.1.5</version>
     </parent>
     <groupId>alex.telegram</groupId>
-    <artifactId>telegram-bot</artifactId>
+    <artifactId>futurity-telegram-bot</artifactId>
     <version>1.0</version>
 
     <dependencyManagement>
