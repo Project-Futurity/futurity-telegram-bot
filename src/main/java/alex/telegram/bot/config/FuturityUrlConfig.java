@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class FuturityUrlConfig {
     private String url;
 
-    private static final String URL_FORMAT = "%s/%s";
+    private static final String URL_FORMAT = "%s/projects/board/%s";
 
     public String buildUrl(@NonNull Long id) {
         return URL_FORMAT.formatted(url, id);
